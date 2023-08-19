@@ -6,13 +6,18 @@ accept: application/json
 
 ###
 
-POST http://127.0.0.1:5000/entry
+POST http://127.0.0.1:5000/entries
 content-type: application/json
 accept: application/json
 
 {
     "content": "hello to you 2"
 }
+
+###
+GET http://127.0.0.1:5000/entries
+content-type: application/json
+accept: application/json
 
 ###
 

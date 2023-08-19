@@ -56,6 +56,23 @@ def insert_entry(content):
         logger.error("db.insert_entry:" + str(e))
     close_connection(conn)
 
+def get_entries():
+    rows = None
+    try:
+        conn = get_connection()
+        cur = conn.cursor()
+        cur.execute("""
+            SELECT entry_id, url, content
+            FROM entry
+            ORDER BY entry_id
+            """)
+        rows = cur.fetchall()
+    except Exception as e:
+        print("***************************")
+        print("DB error in get_entries")
+        print(e)
+    close_connection(conn)
+    return rows    
 
 ##### USER #####
 

@@ -54,6 +54,13 @@ class Hello(Resource):
         return "hello"
 
 class Entry(Resource):
+    def get(self):
+        try:
+            res = entry.get_entries()
+        except Exception as e:
+            abort(400)
+        return {'status': 'SUCCESS', 'data': res}
+    
     def post(self):
         logger.debug('Entry post')
 
@@ -85,7 +92,7 @@ class Entry(Resource):
 
 api = Api(application)
 api.add_resource(Hello, '/hello')
-api.add_resource(Entry, '/entry')
+api.add_resource(Entry, '/entries')
 
 if __name__ == '__main__':
     application.run(debug=True)
