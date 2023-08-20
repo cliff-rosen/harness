@@ -1,11 +1,6 @@
 import boto3
 import os
 
-# Set environment variable
-os.environ["AWS_ACCESS_KEY_ID"] = 'AKIASVU7Y2WV6IDLHX4A'
-os.environ["AWS_SECRET_ACCESS_KEY"] = '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'
-os.environ['AWS_DEFAULT_REGION'] = 'us-east-2'
-
 url = 'https://sqs.us-east-2.amazonaws.com/183944926635/entries_new'
 
 
