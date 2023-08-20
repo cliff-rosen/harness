@@ -18,14 +18,17 @@ export default function List() {
       }, []);
 
   return (
-    <div tyle={{ maxHeight: "50vh", overflowY: "auto" }}>
-      {entries.map((e, i) => (
-        <div key={i}>
-          <Divider style={{ paddingTop: 10, paddingBottom: 10 }} />
-          <div style={{ paddingTop: 10 }}>{e.content}</div>
+    <div style={{ maxHeight: "50vh", maxWidth: "70vw", overflowY: "auto" }}>
+      {entries.map((e) => (
+        <div key={e.entry_id}>
+          <Divider style={{ paddingTop: 5, paddingBottom: 5 }} />
+          <div style={{ paddingTop: 5, paddingBottom: 0, display: 'flex' }}>
+            <div style={{flex: "0 0 200px"}}>{e.date_time_added}</div>
+            <div style={{}}>{e.content}</div>
+           </div>
         </div>
       ))}
-      <Divider style={{ paddingTop: 10, paddingBottom: 10 }} />
+      <Divider style={{ paddingTop: 5, paddingBottom: 5 }} />
     </div>
   );
 }

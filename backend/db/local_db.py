@@ -62,7 +62,7 @@ def get_entries():
         conn = get_connection()
         cur = conn.cursor()
         cur.execute("""
-            SELECT entry_id, url, content
+            SELECT entry_id, url, content, date_time_added
             FROM entry
             ORDER BY entry_id
             """)
@@ -72,6 +72,8 @@ def get_entries():
         print("DB error in get_entries")
         print(e)
     close_connection(conn)
+    for row in rows:
+        row['date_time_added'] = row['date_time_added'].strftime('%Y-%m-%d %H:%M:%S')
     return rows    
 
 ##### USER #####

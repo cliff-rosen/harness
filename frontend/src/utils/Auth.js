@@ -41,6 +41,10 @@ const p_logout = () => {
 };
 
 export const getUser = () => {
+  
+  //FIX ME: remove this once session system is working
+  return {userID: 12345, userName: 'Cliff'}
+
   let user;
   try {
     user = JSON.parse(localStorage.getItem("user"));
